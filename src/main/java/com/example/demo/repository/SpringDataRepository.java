@@ -19,13 +19,4 @@ public interface SpringDataRepository extends JpaRepository<Course, Long> {
     List<Course> findByNameOrderByIdDesc(String name);
 
     List<Course> deleteByName(String name);
-
-    @Query("Select  c  From Course c where name like '%Course'")
-    List<Course> courseWith100StepsInName();
-
-    @Query(value = "Select  *  From Course c where name like '%Course'", nativeQuery = true)
-    List<Course> courseWith100StepsInNameUsingNativeQuery();
-
-    @Query(name = "query_get_100_Step_courses")
-    List<Course> courseWith100StepsInNameUsingNamedQuery();
 }
